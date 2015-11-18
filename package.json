@@ -1,24 +1,25 @@
 {
-  "name": "resume",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "author": "Fábio Luciano",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "latest",
-    "gulp-bower": "latest",
-    "gulp-notify" : "latest",
-    "gulp-jshint": "latest",
-    "gulp-concat": "latest",
-    "rimraf" : "latest",
-    "gulp-uglify": "latest",
-    "gulp-ng-annotate": "latest",
-    "gulp-less": "latest",
-    "less-plugin-clean-css": "latest",
-    "gulp-csslint": "latest",
-    "jshint-stylish" : "latest",
-    "gulp-watch" :  "latest",
-    "bower-files" : "latest"
-  }
+    "name": "resume",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "author": "Fábio Luciano",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "latest",
+        "gulp-bower": "latest",
+        "gulp-notify" : "latest",
+        "gulp-jshint": "latest",
+        "gulp-concat": "latest",
+        "gulp-typescript" : "latest",
+        "rimraf" : "latest",
+        "gulp-uglify": "latest",
+        "gulp-ng-annotate": "latest",
+        "gulp-less": "latest",
+        "less-plugin-clean-css": "latest",
+        "gulp-csslint": "latest",
+        "jshint-stylish" : "latest",
+        "gulp-watch" :  "latest",
+        "bower-files" : "latest"
+    }
 }

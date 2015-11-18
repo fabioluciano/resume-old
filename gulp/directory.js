@@ -9,17 +9,13 @@ module.exports = (function () {
                 },
                 less = function () {
                     return assets() + 'less/';
-                },
-                vendor = function () {
-                    return assets() + 'bower/';
                 };
 
             return {
                 root : root,
                 assets : assets(),
                 javascript :  javascript(),
-                less :  less(),
-                vendor :  vendor()
+                less :  less()
             };
         }()),
             target = (function () {

@@ -1,13 +1,9 @@
 {
-  "name": "resume",
-  "dependencies": {
-    "angular": "latest",
-    "angular-i18n": "latest",
-    "angular-resource": "latest",
-    "angular-route": "latest",
-    "angular-sanitize": "latest",
-    "angular-translate": "latest",
-    "angular-translate-loader-static-files": "latest",
-    "angular-translate-storage-local": "latest",
-  }
+    "name": "resume",
+    "dependencies": {
+        "angular": "latest",
+        "angular-resource": "latest",
+        "angular-route": "latest",
+        "angular-strap": "latest"
+    }
 }
