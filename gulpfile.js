@@ -42,7 +42,7 @@
         ];
 
         return gulp.src(javascript)
-            .pipe(concat('application.js'))
+            .pipe(concat('application.min.js'))
             .pipe(ngAnnotate({
                 single_quotes : true
             }))
@@ -90,6 +90,14 @@
             .pipe(gulp.dest(directory.target.root))
     });
 
+    gulp.task('watch-template', function () {
+        var watcher = gulp.watch(directory.source.root + '*.jade', ['template']);
+
+        watcher.on('change', function(event) {
+            console.log('Rodando novamente!');
+        });
+    });
+
     gulp.task('watch-dependencies-bower', function () {
         var watcher = gulp.watch('bower.json', ['bower', 'javascript-vendor', 'stylesheet-vendor']);
 
@@ -120,5 +128,5 @@
     gulp.task('javascript', ['javascript-vendor', 'javascript-application']);
     gulp.task('stylesheet', ['stylesheet-vendor', 'stylesheet-application', 'install-fonts']);
     gulp.task('lint', ['jshint']);
-    gulp.task('watch', ['watch-dependencies-bower', 'watch-javascript', 'watch-stylesheet']);
+    gulp.task('watch', ['watch-dependencies-bower', 'watch-javascript', 'watch-stylesheet', 'watch-template']);
 }());
