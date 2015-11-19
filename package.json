@@ -11,7 +11,7 @@
         "gulp-notify" : "latest",
         "gulp-jshint": "latest",
         "gulp-concat": "latest",
-        "gulp-typescript" : "latest",
+        "gulp-jade" : "latest",
         "rimraf" : "latest",
         "gulp-uglify": "latest",
         "gulp-ng-annotate": "latest",
