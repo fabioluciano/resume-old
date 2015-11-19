@@ -4,6 +4,11 @@
         "angular": "latest",
         "angular-resource": "latest",
         "angular-route": "latest",
-        "angular-strap": "latest"
+        "angular-sanitize": "latest",
+        "angular-strap": "latest",
+        "angular-translate": "latest",
+        "angular-translate-loader-static-files": "latest",
+        "angular-translate-storage-cookie": "latest",
+        "angular-translate-storage-local": "latest"
     }
 }

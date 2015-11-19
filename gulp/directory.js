@@ -9,13 +9,17 @@ module.exports = (function () {
                 },
                 less = function () {
                     return assets() + 'less/';
+                },
+                jade = function () {
+                    return root + 'jade/';
                 };
 
             return {
                 root : root,
                 assets : assets(),
                 javascript :  javascript(),
-                less :  less()
+                less :  less(),
+                jade : jade()
             };
         }()),
             target = (function () {

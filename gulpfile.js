@@ -9,6 +9,7 @@
         concat = require('gulp-concat'),
         rimraf = require('rimraf'),
         uglify = require('gulp-uglify'),
+        jsonminify = require('gulp-jsonminify'),
         ngAnnotate = require('gulp-ng-annotate'),
         less = require('gulp-less'),
         jade = require('gulp-jade'),
@@ -46,7 +47,7 @@
             .pipe(ngAnnotate({
                 single_quotes : true
             }))
-            // .pipe(uglify())
+            .pipe(uglify())
             .pipe(gulp.dest(directory.target.javascript));
     });
 
@@ -84,14 +85,21 @@
             .pipe(gulp.dest(directory.target.assets + 'fonts'));
     });
 
+    gulp.task('copy-data', function() {
+        return gulp.src(directory.source.javascript + 'application/i18n/*')
+            .pipe(jsonminify())
+            .pipe(gulp.dest(directory.target.root + 'data'));
+    });
+
     gulp.task('template',  function() {
-        return gulp.src(directory.source.root + '*.jade')
+        console.log(directory.source.jade);
+        return gulp.src(directory.source.jade + '**/*.jade')
             .pipe(jade())
             .pipe(gulp.dest(directory.target.root))
     });
 
     gulp.task('watch-template', function () {
-        var watcher = gulp.watch(directory.source.root + '*.jade', ['template']);
+        var watcher = gulp.watch(directory.source.jade + '**/*.jade', ['template']);
 
         watcher.on('change', function(event) {
             console.log('Rodando novamente!');
@@ -124,7 +132,7 @@
 
     gulp.task('default', ['dependencies', 'build', 'lint', 'watch']);
     gulp.task('dependencies', ['bower']);
-    gulp.task('build', ['javascript', 'stylesheet', 'template']);
+    gulp.task('build', ['javascript', 'stylesheet', 'template', 'copy-data']);
     gulp.task('javascript', ['javascript-vendor', 'javascript-application']);
     gulp.task('stylesheet', ['stylesheet-vendor', 'stylesheet-application', 'install-fonts']);
     gulp.task('lint', ['jshint']);

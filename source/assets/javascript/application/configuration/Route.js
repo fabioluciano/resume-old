@@ -3,9 +3,13 @@
 
     application.config(function($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/credencial', {
-                templateUrl: 'credencial',
-                controller: 'IndexCredencialController'
+            .when('/', {
+                templateUrl: 'page/home.html',
+                controller: 'ApplicationController'
+            })
+            .when('/contato', {
+                templateUrl: 'page/contact.html',
+                controller: 'ContactController'
             })
             .otherwise({
                 redirectTo: '/'
