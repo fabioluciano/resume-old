@@ -8,9 +8,9 @@ html.no-js(ng-app='application')
         link(rel='stylesheet', href='assets/stylesheet/vendor.css')
         link(rel='stylesheet', href='assets/stylesheet/application.css')
         base(href='/')
-    body(ng-view)
-        header
-        h1 {{name}}
+    body
+        include partial/headerbar
+        div(ng-view)
 
         script(src='assets/javascript/vendor.min.js')
         script(src='assets/javascript/application.min.js')

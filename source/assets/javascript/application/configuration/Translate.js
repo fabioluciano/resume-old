@@ -3,12 +3,12 @@
 
     application.config(function($translateProvider) {
         $translateProvider.useStaticFilesLoader({
-            prefix: 'data/data-',
+            prefix: 'data/',
             suffix: '.json'
         });
 
         $translateProvider.preferredLanguage('pt_br');
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('escapeParameters');
         $translateProvider.useLocalStorage();
     });
 })(application);

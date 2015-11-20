@@ -1,0 +1,13 @@
+{
+    "BIOGRAPHY" : {
+        "NAME" : "Fábio Luciano Nogueira de Góis",
+        "PHONE" : "+55 61 81455884"
+    },
+    "FIELDS" : {
+        "MAINBAR" : {
+            "SKILLS" : "Habilidades",
+            "SOLUTIONS" : "Soluções",
+            "CONTACT" : "Contato"
+        }
+    }
+}

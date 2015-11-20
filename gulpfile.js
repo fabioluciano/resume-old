@@ -86,15 +86,14 @@
     });
 
     gulp.task('copy-data', function() {
-        return gulp.src(directory.source.javascript + 'application/i18n/*')
+        return gulp.src(directory.source.javascript + 'application/i18n/*.json')
             .pipe(jsonminify())
             .pipe(gulp.dest(directory.target.root + 'data'));
     });
 
     gulp.task('template',  function() {
-        console.log(directory.source.jade);
         return gulp.src(directory.source.jade + '**/*.jade')
-            .pipe(jade())
+            .pipe(jade({pretty : true}))
             .pipe(gulp.dest(directory.target.root))
     });
 
