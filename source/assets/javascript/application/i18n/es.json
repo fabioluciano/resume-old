@@ -5,9 +5,9 @@
     },
     "FIELDS" : {
         "MAINBAR" : {
-            "SKILLS" : "Habilidades",
-            "SOLUTIONS" : "Soluções",
-            "CONTACT" : "Contato"
+            "SKILLS" : "Skills",
+            "SOLUTIONS" : "Solutions",
+            "CONTACT" : "Contact"
         }
     }
 }
