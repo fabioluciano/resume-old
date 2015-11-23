@@ -7,6 +7,7 @@
         "MAINBAR" : {
             "SKILLS" : "Skills",
             "SOLUTIONS" : "Solutions",
+            "PROJECTS" : "Projects",
             "CONTACT" : "Contact"
         }
     }

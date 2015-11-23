@@ -13,7 +13,7 @@
     "gulp-csslint": "latest",
     "gulp-jade": "latest",
     "gulp-jshint": "latest",
-    "gulp-jsonminify": "^1.0.0",
+    "gulp-jsonminify": "latest",
     "gulp-less": "latest",
     "gulp-ng-annotate": "latest",
     "gulp-notify": "latest",

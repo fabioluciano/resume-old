@@ -8,12 +8,16 @@
                 controller: 'ApplicationController'
             })
             .when('/habilidades', {
-                templateUrl: 'page/habilidades.html',
-                controller: 'HabilidadesController'
+                templateUrl: 'page/skills.html',
+                controller: 'SkillsController'
             })
             .when('/projetos', {
-                templateUrl: 'page/projetos.html',
-                controller: 'ProjetosController'
+                templateUrl: 'page/projects.html',
+                controller: 'ProjectsController'
+            })
+            .when('/solucoes', {
+                templateUrl: 'page/solutions.html',
+                controller: 'SolutionsController'
             })
             .when('/contato', {
                 templateUrl: 'page/contact.html',

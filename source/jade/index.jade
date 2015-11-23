@@ -5,12 +5,13 @@ html.no-js(ng-app='application')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         title Fábio Luciano - Curr&iacute;culo - Resume
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(rel='stylesheet', href='assets/stylesheet/vendor.css')
+        link(rel="stylesheet", href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css")
         link(rel='stylesheet', href='assets/stylesheet/application.css')
         base(href='/')
     body
-        include partial/headerbar
-        div(ng-view)
+        div(class="layout" ng)
+            include partial/headerbar
+            include partial/main
 
-        script(src='assets/javascript/vendor.min.js')
-        script(src='assets/javascript/application.min.js')
+            script(src='assets/javascript/vendor.min.js')
+            script(src='assets/javascript/application.min.js')

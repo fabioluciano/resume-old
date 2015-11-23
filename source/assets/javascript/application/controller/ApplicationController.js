@@ -3,7 +3,7 @@
 
     application
         .controller('ApplicationController', function($scope, $translate) {
-            $translate.use('en');
+            console.log($translate);
         });
 
 })(application);

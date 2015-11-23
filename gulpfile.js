@@ -47,23 +47,21 @@
             .pipe(ngAnnotate({
                 single_quotes : true
             }))
-            .pipe(uglify())
+            // .pipe(uglify())
             .pipe(gulp.dest(directory.target.javascript));
     });
 
     // Check for inconsistences of javascript application files
     gulp.task('jshint', ['build'], function () {
-        return gulp.src(directory.target.javascript + 'application.js')
+        return gulp.src(directory.target.javascript + 'application.min.js')
             .pipe(jshint())
             .pipe(jshint.reporter(stylish));
     });
 
     // Compile LESS files on css files
     gulp.task('stylesheet-vendor', ['dependencies'], function () {
-        return gulp.src(directory.source.less + 'vendor.less')
-            .pipe(less({
-                plugins: [new CleanCSS({advanced: true})]
-            }))
+        return gulp.src(library.ext('css').files)
+            .pipe(concat('vendor.min.css'))
             .pipe(gulp.dest(directory.target.stylesheet));
     });
 
@@ -110,7 +108,7 @@
     });
 
     gulp.task('watch-javascript', function () {
-        var watcher = gulp.watch(directory.source.javascript + '**/*.js', ['javascript-application']);
+        var watcher = gulp.watch(directory.source.javascript + '**/**/*.js', ['javascript-application']);
     });
 
     gulp.task('watch-stylesheet', function () {
