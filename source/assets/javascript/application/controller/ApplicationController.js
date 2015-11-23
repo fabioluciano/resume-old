@@ -2,7 +2,8 @@
     'use strict';
 
     application
-        .controller('ApplicationController', function($scope) {
+        .controller('ApplicationController', function($scope, $translate) {
+            $translate.use('en');
         });
 
 })(application);

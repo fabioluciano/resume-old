@@ -99,34 +99,22 @@
 
     gulp.task('watch-template', function () {
         var watcher = gulp.watch(directory.source.jade + '**/*.jade', ['template']);
+    });
 
-        watcher.on('change', function(event) {
-            console.log('Rodando novamente!');
-        });
+    gulp.task('watch-copy-data', function () {
+        var watcher = gulp.watch(directory.source.javascript + 'application/i18n/*.json', ['copy-data']);
     });
 
     gulp.task('watch-dependencies-bower', function () {
         var watcher = gulp.watch('bower.json', ['bower', 'javascript-vendor', 'stylesheet-vendor']);
-
-        watcher.on('change', function(event) {
-            gulp.src('bower.json');
-        });
     });
 
     gulp.task('watch-javascript', function () {
         var watcher = gulp.watch(directory.source.javascript + '**/*.js', ['javascript-application']);
-
-        watcher.on('change', function(event) {
-            gulp.src('gulpfile.js');
-        });
     });
 
     gulp.task('watch-stylesheet', function () {
         var watcher = gulp.watch(directory.source.less + '**/*', ['stylesheet-application']);
-
-        watcher.on('change', function(event) {
-            gulp.src('gulpfile.js');
-        });
     });
 
     gulp.task('default', ['dependencies', 'build', 'lint', 'watch']);
