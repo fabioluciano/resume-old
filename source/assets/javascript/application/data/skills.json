@@ -1,17 +1,26 @@
 {
-    "Backend" : {
-        "PHP" : {
-            "Tool" : ["Composer"],
-            "Framework" : ["Laravel 4/5", "Zend Framwork", "Symfony", "CakePHP", "CodeIgniter", "FuelPHP"]
-        },
-        "Java" : {
+    "Development" : {
+        "Backend" : {
+            "PHP" : {
+                "Tool" : ["Composer", "APC", "PHPUnit", "Xdebug", "phpDocumentor", "PEAR", "PECL"],
+                "Framework" : ["Laravel 4/5", "Zend Framwork", "Symfony", "CakePHP", "CodeIgniter", "FuelPHP"],
+                "CMS" : ["Drupal", "Joola", "Wordpress"]
+            },
+            "Java" : {
 
+            },
+            "Javascript" : {
+
+            },
+            ".NET" : {
+
+            }
         },
-        "Javascript" : {
-            
+        "Frontend" : {
+
         }
     },
-    "Frontend" : {
-
+    "System Administration" : {
+        
     }
 }

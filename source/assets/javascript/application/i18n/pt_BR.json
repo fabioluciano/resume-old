@@ -14,5 +14,7 @@
     "RESUME" :{
         "RESUME" : "Graduado em Análise e Desenvolvimento de Sistemas. 4 anos de experiência como administrador de redes e servidores Linux, 10 anos de experiência em desenvolvimento de software e gerência de equipes de desenvolvimento. Formação voltada para trabalho com tecnologias e ferramentas open source."
     },
-    "Tool" :  "Ferramentas"
+    "Tool" :  "Ferramentas",
+    "Development" : "Desenvolvimento",
+    "System Administration" : "Administração de Sistemas"
 }

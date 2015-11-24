@@ -1,15 +1,14 @@
-header(class="container")
-    nav(class="navbar navbar-default" role="navigation" bs-navbar)
-        div(class="navbar-header")
-            a(class="navbar-brand" href="/") Brand
-        ul(class="nav navbar-nav")
-            li(data-match-route="/$")
+header
+    h1 {{ 'BIOGRAPHY.NAME' | translate | words: 2}}
+    nav#navigation-bar
+        ul
+            li
                 a(href="/") {{ 'FIELDS.MAINBAR.SKILLS' | translate }}
-            li(data-match-route="/solucoes")
+            li
                 a(href="/solucoes") {{ 'FIELDS.MAINBAR.SOLUTIONS' | translate }}
-            li(data-match-route="/projetos")
+            li
                 a(href="/projetos") {{ 'FIELDS.MAINBAR.PROJECTS' | translate }}
-            li(data-match-route="/contato")
+            li
                 a(href="/contato") {{ 'FIELDS.MAINBAR.CONTACT' | translate }}
-        ul(class="nav navbar-nav navbar-right navbar-form")
+            li
                 select(ng-options='lang.language for lang in avaliableLanguages track by lang.i18n', ng-model='selectedLanguage', ng-change='changeLanguage()', class="form-control")

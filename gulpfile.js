@@ -47,7 +47,7 @@
             .pipe(ngAnnotate({
                 single_quotes : true
             }))
-            // .pipe(uglify())
+            .pipe(uglify())
             .pipe(gulp.dest(directory.target.javascript));
     });
 
@@ -88,6 +88,7 @@
             directory.source.javascript + 'application/i18n/*.json',
             directory.source.javascript + 'application/data/*.json',
         ];
+
         return gulp.src(dataFiles)
             .pipe(jsonminify())
             .pipe(gulp.dest(directory.target.root + 'data'));
@@ -95,7 +96,7 @@
 
     gulp.task('template',  function() {
         return gulp.src(directory.source.jade + '**/*.jade')
-            .pipe(jade({pretty : true}))
+            .pipe(jade({pretty : false}))
             .pipe(gulp.dest(directory.target.root))
     });
 
@@ -104,7 +105,12 @@
     });
 
     gulp.task('watch-copy-data', function () {
-        var watcher = gulp.watch(directory.source.javascript + 'application/i18n/**/*.json', ['copy-data']);
+        var dataFiles = [
+            directory.source.javascript + 'application/i18n/*.json',
+            directory.source.javascript + 'application/data/*.json',
+        ];
+
+        var watcher = gulp.watch(dataFiles, ['copy-data']);
     });
 
     gulp.task('watch-dependencies-bower', function () {

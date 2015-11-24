@@ -7,9 +7,10 @@ html.no-js(ng-app='application')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='assets/stylesheet/vendor.min.css')
         link(rel='stylesheet', href='assets/stylesheet/application.css')
+        link(href='https://fonts.googleapis.com/css?family=Patua+One', rel='stylesheet', type='text/css')
         base(href='/')
     body
-        div(class="layout" ng)
+        div#layout
             include partial/headerbar
             include partial/main
 
