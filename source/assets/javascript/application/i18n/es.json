@@ -10,5 +10,9 @@
             "PROJECTS" : "Proyectos",
             "CONTACT" : "Contacto"
         }
-    }
+    },
+    "RESUME" :{
+        "RESUME" : "Licenciatura en Análisis de Sistemas y Desarrollo. 4 años de experiencia como administrador de red y servidores Linux, 10 años de experiencia en el desarrollo y gestión de los equipos de software. Capacitación enfocada en trabajar con tecnologías y herramientas de código abierto."
+    },
+    "Tool" : "Herramientas"
 }

@@ -3,7 +3,16 @@
 
     application
         .factory('Skills', function($http) {
-            $http.get('/data/skills.json');
+            var getSkills = function() {
+                return $http({
+                    url : '/data/skills.json',
+                    method : 'GET'
+                });
+            }
+
+            return {
+                getSkills : getSkills
+            }
         });
 
 })(application);

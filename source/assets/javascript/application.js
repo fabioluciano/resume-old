@@ -1,4 +1,4 @@
 var application = angular.module('application', [
     'ngRoute', 'ngResource', 'ngCookies', 'ngSanitize',
-    'pascalprecht.translate'
+    'pascalprecht.translate', 'angular-loading-bar'
 ]);

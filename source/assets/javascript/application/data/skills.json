@@ -1,7 +1,17 @@
 {
-    "backend" : {
+    "Backend" : {
         "PHP" : {
+            "Tool" : ["Composer"],
+            "Framework" : ["Laravel 4/5", "Zend Framwork", "Symfony", "CakePHP", "CodeIgniter", "FuelPHP"]
+        },
+        "Java" : {
+
+        },
+        "Javascript" : {
             
         }
+    },
+    "Frontend" : {
+
     }
 }

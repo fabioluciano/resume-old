@@ -84,7 +84,11 @@
     });
 
     gulp.task('copy-data', function() {
-        return gulp.src(directory.source.javascript + 'application/i18n/*.json')
+        var dataFiles = [
+            directory.source.javascript + 'application/i18n/*.json',
+            directory.source.javascript + 'application/data/*.json',
+        ];
+        return gulp.src(dataFiles)
             .pipe(jsonminify())
             .pipe(gulp.dest(directory.target.root + 'data'));
     });
@@ -100,7 +104,7 @@
     });
 
     gulp.task('watch-copy-data', function () {
-        var watcher = gulp.watch(directory.source.javascript + 'application/i18n/*.json', ['copy-data']);
+        var watcher = gulp.watch(directory.source.javascript + 'application/i18n/**/*.json', ['copy-data']);
     });
 
     gulp.task('watch-dependencies-bower', function () {

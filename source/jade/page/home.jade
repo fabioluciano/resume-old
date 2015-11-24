@@ -1,1 +1,11 @@
-div home
+div(class="container")
+    div(class="resume") {{'RESUME.RESUME' | translate }}
+    div(class="skills")
+        ul
+            li(ng-repeat="(platform, language) in skills", class="platform") {{ platform }}
+                ul
+                    li(ng-repeat="(language, description) in language", class="language") {{ language }}
+                        ul
+                            li(ng-repeat="(category, description) in description", class="category") {{ category | translate }}
+                                ul
+                                    li(ng-repeat="desc in description", class="category") {{ desc }}
