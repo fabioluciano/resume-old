@@ -2,25 +2,74 @@
     "Development" : {
         "Backend" : {
             "PHP" : {
-                "Tool" : ["Composer", "APC", "PHPUnit", "Xdebug", "phpDocumentor", "PEAR", "PECL"],
-                "Framework" : ["Laravel 4/5", "Zend Framwork", "Symfony", "CakePHP", "CodeIgniter", "FuelPHP"],
-                "CMS" : ["Drupal", "Joola", "Wordpress"]
+                "Tool" : [
+                    {"name" : "Composer", "level" : 5},
+                    {"name" : "APC", "level" : 5},
+                    {"name" : "PHPUnit", "level" : 4},
+                    {"name" : "Xdebug", "level" : 5},
+                    {"name" : "phpDocumentor", "level" :  5},
+                    {"name" : "PEAR", "level" : 5},
+                    {"name" : "PECL", "level" : 5}
+                ],
+                "Framework" : [
+                    "Laravel 4/5",
+                    "Zend Framwork",
+                    "Symfony",
+                    "CakePHP",
+                    "CodeIgniter",
+                    "FuelPHP"
+                ],
+                "CMS" : [
+                    "Drupal",
+                    "Joola",
+                    "Wordpress"
+                ],
+                "Other" : {
+                }
             },
             "Java" : {
+                "Tool" : {
 
+                },
+                "Framework" : {
+
+                },
+                "Other" : {
+
+                }
             },
             "Javascript" : {
+                "Tools" : {
 
+                },
+                "Framework" : {
+
+                },
+                "Other" : {
+
+                }
             },
             ".NET" : {
+                "Tool" : {
 
+                },
+                "Framework" : {
+
+                },
+                "Other" : {
+
+                }
             }
         },
         "Frontend" : {
+            "Javascript" : {
 
+            },
+            "CSS" : {
+            }
         }
     },
     "System Administration" : {
-        
+
     }
 }

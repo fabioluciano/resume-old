@@ -59,28 +59,25 @@
     });
 
     // Compile LESS files on css files
+    gulp.task('vendor-fonts', ['dependencies'], function () {
+        return gulp.src(library.ext(['eot', 'woff', 'woff2', 'ttf', 'svg']).files)
+            .pipe(gulp.dest(directory.target.assets + 'fonts'));
+    });
+
+    // Compile LESS files on css files
     gulp.task('stylesheet-vendor', ['dependencies'], function () {
         return gulp.src(library.ext('css').files)
             .pipe(concat('vendor.min.css'))
             .pipe(gulp.dest(directory.target.stylesheet));
     });
 
+    // Compile LESS files on css files
     gulp.task('stylesheet-application', function () {
         return gulp.src(directory.source.less + 'application.less')
             .pipe(less({
                 plugins: [new CleanCSS({advanced: true})]
             }))
             .pipe(gulp.dest(directory.target.stylesheet));
-    });
-
-    gulp.task('install-fonts', function () {
-        var fontDirectory = [
-            'resources/assets/bower/fontawesome/fonts/*',
-            'resources/assets/bower/bootswatch-dist/fonts/*'
-        ];
-
-        return gulp.src(fontDirectory)
-            .pipe(gulp.dest(directory.target.assets + 'fonts'));
     });
 
     gulp.task('copy-data', function() {
@@ -129,7 +126,7 @@
     gulp.task('dependencies', ['bower']);
     gulp.task('build', ['javascript', 'stylesheet', 'template', 'copy-data']);
     gulp.task('javascript', ['javascript-vendor', 'javascript-application']);
-    gulp.task('stylesheet', ['stylesheet-vendor', 'stylesheet-application', 'install-fonts']);
+    gulp.task('stylesheet', ['stylesheet-vendor', 'stylesheet-application', 'vendor-fonts']);
     gulp.task('lint', ['jshint']);
     gulp.task('watch', ['watch-dependencies-bower', 'watch-javascript', 'watch-stylesheet', 'watch-template']);
 }());

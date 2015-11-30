@@ -4,20 +4,16 @@
     application.config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'page/home.html',
-                controller: 'ApplicationController'
-            })
-            .when('/habilidades', {
                 templateUrl: 'page/skills.html',
-                controller: 'SkillsController'
+                controller: 'ApplicationController'
             })
             .when('/projetos', {
                 templateUrl: 'page/projects.html',
-                controller: 'ProjectsController'
+                controller: 'ProjectController'
             })
             .when('/solucoes', {
                 templateUrl: 'page/solutions.html',
-                controller: 'SolutionsController'
+                controller: 'SolutionController'
             })
             .when('/contato', {
                 templateUrl: 'page/contact.html',
