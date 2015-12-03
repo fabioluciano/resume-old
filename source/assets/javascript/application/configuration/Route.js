@@ -4,11 +4,7 @@
     application.config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-<<<<<<< HEAD
-                templateUrl: 'page/home.html',
-=======
                 templateUrl: 'page/skills.html',
->>>>>>> d9b209821bf96103b957d19f3805c9d1562ef2f2
                 controller: 'ApplicationController'
             })
             .when('/projetos', {
