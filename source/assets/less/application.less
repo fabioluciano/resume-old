@@ -7,8 +7,14 @@ body {
 }
 
 #layout {
-    width: 90%;
+    .border-radius(5px);
+
+    border: 8px solid @color-clouds;
+    width: 85%;
     margin: auto;
+    padding: 5px;
+    background: rgba(255,255,255, 0.9);
+
 }
 
 header {
@@ -21,6 +27,15 @@ header {
         color: @color-peter-river;
         text-align: center;
     }
+}
+
+#title {
+    .border-radius(10px);
+
+    border: 3px solid @color-clouds;
+    background: @backgroud_title  rgba(255,255,255, 0.5);
+    line-height: 50px;
+    padding-left: 10px;
 }
 
 #navigation-bar {
@@ -72,6 +87,11 @@ header {
                 display: block;
                 padding: 10px;
                 border: 1px solid #000;
+                font-weight: 800;
+
+                div {
+
+                }
             }
         }
         .platform {
@@ -79,26 +99,28 @@ header {
                 font-weight: normal;
                 margin-left: 10px;
                 border: none;
+                padding: 0;
             }
         }
         .language {
             li {
                 font-weight: normal;
-                margin-left: 10px;
                 border: none;
+                padding: 0;
+
             }
         }
         .category {
             li {
                 font-weight: normal;
-                margin-left: 10px;
                 border: none;
+                padding: 0;
+
             }
         }
         .desc {
             li {
                 font-weight: normal;
-                margin-left: 10px;
                 border: none;
             }
         }

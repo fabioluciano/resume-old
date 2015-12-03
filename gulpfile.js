@@ -2,8 +2,8 @@
     'use strict';
 
     // Libraries to import
-    var gulp = require('gulp'),
-        bower = require('gulp-bower'),
+    var gulp      = require('gulp'),
+        bower     = require('gulp-bower'),
         library = require('bower-files')(),
         jshint = require('gulp-jshint'),
         concat = require('gulp-concat'),
