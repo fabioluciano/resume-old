@@ -3,12 +3,12 @@ header
     nav#navigation-bar
         ul
             li
-                a(href="/") {{ 'FIELDS.MAINBAR.SKILLS' | translate }}
+                a.fa.fa-code(href="/") {{ 'FIELDS.MAINBAR.SKILLS' | translate }}
             li
                 a(href="/solucoes") {{ 'FIELDS.MAINBAR.SOLUTIONS' | translate }}
             li
                 a(href="/projetos") {{ 'FIELDS.MAINBAR.PROJECTS' | translate }}
             li
-                a(href="/contato") {{ 'FIELDS.MAINBAR.CONTACT' | translate }}
+                a.fa.fa-envelope-o(href="/contato") {{ 'FIELDS.MAINBAR.CONTACT' | translate }}
             li
                 select(ng-options='lang.language for lang in avaliableLanguages track by lang.i18n', ng-model='selectedLanguage', ng-change='changeLanguage()', class="form-control")
