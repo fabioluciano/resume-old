@@ -11,6 +11,7 @@
     "gulp-bower": "latest",
     "gulp-concat": "latest",
     "gulp-csslint": "latest",
+    "gulp-imagemin": "latest",
     "gulp-jade": "latest",
     "gulp-jshint": "latest",
     "gulp-jsonminify": "latest",
@@ -19,6 +20,7 @@
     "gulp-notify": "latest",
     "gulp-uglify": "latest",
     "gulp-watch": "latest",
+    "imagemin-pngquant": "latest",
     "jshint-stylish": "latest",
     "less-plugin-clean-css": "latest",
     "rimraf": "latest"

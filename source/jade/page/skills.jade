@@ -12,4 +12,4 @@ div#home
                                 ul.category
                                     li(ng-repeat="(category, description) in description") {{ category | translate }}
                                         ul.desc
-                                            li(ng-repeat="desc in description", class="desc") {{ desc }}
+                                            li(ng-repeat="desc in description", class="desc") {{ desc.name }} {{ desc.level }}

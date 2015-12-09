@@ -12,6 +12,9 @@ module.exports = (function () {
                 },
                 jade = function () {
                     return root + 'jade/';
+                },
+                image = function () {
+                    return assets() + 'image/'
                 };
 
             return {
@@ -19,7 +22,8 @@ module.exports = (function () {
                 assets : assets(),
                 javascript :  javascript(),
                 less :  less(),
-                jade : jade()
+                jade : jade(),
+                image : image()
             };
         }()),
             target = (function () {
@@ -32,12 +36,17 @@ module.exports = (function () {
                     },
                     stylesheet = function () {
                         return assets() + 'stylesheet/';
+                    },
+                    image = function () {
+                        return assets() + 'image/';
                     };
+
                 return {
                     root :  root,
                     assets :  assets(),
                     javascript : javascript(),
-                    stylesheet : stylesheet()
+                    stylesheet : stylesheet(),
+                    image : image()
                 };
             }());
 

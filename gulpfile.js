@@ -2,29 +2,39 @@
     'use strict';
 
     // Libraries to import
-    var gulp      = require('gulp'),
-        bower     = require('gulp-bower'),
-        library = require('bower-files')(),
-        jshint = require('gulp-jshint'),
-        concat = require('gulp-concat'),
-        rimraf = require('rimraf'),
-        uglify = require('gulp-uglify'),
+    var fs         = require('fs'),
+        gulp       = require('gulp'),
+        bower      = require('gulp-bower'),
+        library    = require('bower-files')(),
+        jshint     = require('gulp-jshint'),
+        concat     = require('gulp-concat'),
+        rimraf     = require('rimraf'),
+        uglify     = require('gulp-uglify'),
         jsonminify = require('gulp-jsonminify'),
         ngAnnotate = require('gulp-ng-annotate'),
-        less = require('gulp-less'),
-        jade = require('gulp-jade'),
-        stylish = require('jshint-stylish'),
-        CleanCSS = require('less-plugin-clean-css'),
-        directory = require('./gulp/directory');
+        less       = require('gulp-less'),
+        jade       = require('gulp-jade'),
+        stylish    = require('jshint-stylish'),
+        CleanCSS   = require('less-plugin-clean-css'),
+        imagemin   = require('gulp-imagemin'),
+        pngquant   = require('imagemin-pngquant'),
+        directory  = require('./gulp/directory');
 
     // Install dependencies
-    gulp.task('bower', function () {
-        return bower({ cmd : 'install'});
+    gulp.task('bower', () => {
+        var stats = fs.statSync('./bower');
+
+        if( ! stats.isDirectory()) {
+            console.log('INSTALANDO');
+            return bower({ cmd : 'install'});
+        }
+
+        return bower({ cmd : 'update'});
     });
 
     // Concat all vendor javascript files, removes the debug informations and
     // reruns the uglify on minimified files
-    gulp.task('javascript-vendor', ['dependencies'], function () {
+    gulp.task('javascript-vendor', ['dependencies'], () => {
         return gulp.src(library.ext('js').files)
             .pipe(concat('vendor.min.js'))
             .pipe(uglify())
@@ -33,7 +43,7 @@
 
     // Concat all application javascript files, removes the debug informations and
     // reruns the uglify on minimified files
-    gulp.task('javascript-application', ['dependencies'], function () {
+    gulp.task('javascript-application', ['dependencies'], () => {
         var javascript = [
             directory.source.javascript + 'application.js',
             directory.source.javascript + 'application/configuration/**/*',
@@ -52,27 +62,27 @@
     });
 
     // Check for inconsistences of javascript application files
-    gulp.task('jshint', ['build'], function () {
+    gulp.task('jshint', ['build'], () => {
         return gulp.src(directory.target.javascript + 'application.min.js')
             .pipe(jshint())
             .pipe(jshint.reporter(stylish));
     });
 
     // Compile LESS files on css files
-    gulp.task('vendor-fonts', ['dependencies'], function () {
+    gulp.task('vendor-fonts', ['dependencies'], () => {
         return gulp.src(library.ext(['eot', 'woff', 'woff2', 'ttf', 'svg']).files)
             .pipe(gulp.dest(directory.target.assets + 'fonts'));
     });
 
     // Compile LESS files on css files
-    gulp.task('stylesheet-vendor', ['dependencies'], function () {
+    gulp.task('stylesheet-vendor', ['dependencies'], () => {
         return gulp.src(library.ext('css').files)
             .pipe(concat('vendor.min.css'))
             .pipe(gulp.dest(directory.target.stylesheet));
     });
 
     // Compile LESS files on css files
-    gulp.task('stylesheet-application', function () {
+    gulp.task('stylesheet-application', () => {
         return gulp.src(directory.source.less + 'application.less')
             .pipe(less({
                 plugins: [new CleanCSS({advanced: true})]
@@ -80,7 +90,7 @@
             .pipe(gulp.dest(directory.target.stylesheet));
     });
 
-    gulp.task('copy-data', function() {
+    gulp.task('copy-data', () => {
         var dataFiles = [
             directory.source.javascript + 'application/i18n/*.json',
             directory.source.javascript + 'application/data/*.json',
@@ -91,42 +101,60 @@
             .pipe(gulp.dest(directory.target.root + 'data'));
     });
 
-    gulp.task('template',  function() {
+    gulp.task('template', () => {
         return gulp.src(directory.source.jade + '**/*.jade')
             .pipe(jade({pretty : false}))
             .pipe(gulp.dest(directory.target.root))
     });
 
-    gulp.task('watch-template', function () {
-        var watcher = gulp.watch(directory.source.jade + '**/*.jade', ['template']);
+    gulp.task('image', () => {
+        return gulp.src(directory.source.image + '*.png')
+            .pipe(imagemin({
+            	progressive: true,
+            	svgoPlugins: [ {removeViewBox: false} ],
+            	use: [ pngquant() ]
+            }))
+            .pipe(gulp.dest(directory.target.image));
     });
 
-    gulp.task('watch-copy-data', function () {
+
+    /**
+     * Watchers
+     */
+    gulp.task('watch-template', () => {
+        return gulp.watch(directory.source.jade + '**/*.jade', ['template']);
+    });
+
+    gulp.task('watch-copy-data', () => {
         var dataFiles = [
             directory.source.javascript + 'application/i18n/*.json',
             directory.source.javascript + 'application/data/*.json',
         ];
 
-        var watcher = gulp.watch(dataFiles, ['copy-data']);
+        return gulp.watch(dataFiles, ['copy-data']);
     });
 
-    gulp.task('watch-dependencies-bower', function () {
-        var watcher = gulp.watch('bower.json', ['bower', 'javascript-vendor', 'stylesheet-vendor']);
+    gulp.task('watch-dependencies-bower', () => {
+        return gulp.watch('bower.json', ['bower', 'javascript-vendor', 'stylesheet-vendor']);
     });
 
-    gulp.task('watch-javascript', function () {
-        var watcher = gulp.watch(directory.source.javascript + '**/**/*.js', ['javascript-application']);
+    gulp.task('watch-javascript', () => {
+        return gulp.watch(directory.source.javascript + '**/**/*.js', ['javascript-application']);
     });
 
-    gulp.task('watch-stylesheet', function () {
-        var watcher = gulp.watch(directory.source.less + '**/*', ['stylesheet-application']);
+    gulp.task('watch-stylesheet', () => {
+        return gulp.watch(directory.source.less + '**/*', ['stylesheet-application']);
+    });
+
+    gulp.task('watch-image', () => {
+        return gulp.watch(directory.source.image + '*.png', ['image']);
     });
 
     gulp.task('default', ['dependencies', 'build', 'lint', 'watch']);
     gulp.task('dependencies', ['bower']);
-    gulp.task('build', ['javascript', 'stylesheet', 'template', 'copy-data']);
+    gulp.task('build', ['javascript', 'stylesheet', 'template', 'copy-data', 'image']);
     gulp.task('javascript', ['javascript-vendor', 'javascript-application']);
     gulp.task('stylesheet', ['stylesheet-vendor', 'stylesheet-application', 'vendor-fonts']);
     gulp.task('lint', ['jshint']);
-    gulp.task('watch', ['watch-dependencies-bower', 'watch-javascript', 'watch-stylesheet', 'watch-template']);
+    gulp.task('watch', ['watch-dependencies-bower', 'watch-javascript', 'watch-stylesheet', 'watch-template', 'watch-copy-data']);
 }());

@@ -1,2 +1,8 @@
 div#projects
     h2#title {{ 'FIELDS.MAINBAR.PROJECTS' | translate }}
+    
+    div.github-projects
+        ul
+            li(ng-repeat="repository in githubProjects | filter : {fork : false} | orderBy : 'updated_at' : true") 
+                div {{ repository.name }}
+                div {{ repository.description }}
