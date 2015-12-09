@@ -43,7 +43,7 @@
 
     // Concat all application javascript files, removes the debug informations and
     // reruns the uglify on minimified files
-    gulp.task('javascript-application', ['dependencies'], () => {
+    gulp.task('javascript-application', () => {
         var javascript = [
             directory.source.javascript + 'application.js',
             directory.source.javascript + 'application/configuration/**/*',
