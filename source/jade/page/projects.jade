@@ -4,5 +4,6 @@ div#projects
     div.github-projects
         ul
             li(ng-repeat="repository in githubProjects | filter : {fork : false} | orderBy : 'updated_at' : true") 
-                div {{ repository.name }}
+                div 
+                    a(href="{{repository.html_url}}"){{ repository.name }}
                 div {{ repository.description }}

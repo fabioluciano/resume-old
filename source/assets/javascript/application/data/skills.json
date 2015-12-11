@@ -12,15 +12,17 @@
                     {"name" : "PECL", "level" : 5}
                 ],
                 "Framework" : [
-                    "Laravel 4/5",
-                    "Zend Framwork",
-                    "Symfony",
-                    "CakePHP",
-                    "CodeIgniter",
-                    "FuelPHP"
+                    {"name" : "Laravel 4/5", "level" : 5},
+                    {"name" : "Zend Framwork", "level" : 3},
+                    {"name" : "Symfony", "level" : 4},
+                    {"name" : "CakePHP", "level" : 3},
+                    {"name" : "CodeIgniter", "level" : 5},
+                    {"name" : "FuelPHP", "level" : 5}
                 ],
                 "CMS" : [
-                    "Drupal",
+                    {"name" : "Drupal", "level" : 2},
+                    {"name" : "Joola", "level" : 2},
+                    {"name" : "Wordpress", "level" : 2},
                     "Joola",
                     "Wordpress"
                 ],
@@ -31,9 +33,9 @@
                 "Tool" : {
 
                 },
-                "Framework" : {
-
-                },
+                "Framework" : [
+                    {"name" : "Spring", "level" : 2}
+                ],
                 "Other" : {
 
                 }
