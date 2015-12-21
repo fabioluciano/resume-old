@@ -12,4 +12,6 @@ div#home
                                 ul.category
                                     li(ng-repeat="(category, description) in description") {{ category | translate }}
                                         ul.desc
-                                            li(ng-repeat="desc in description", class="desc") {{ desc.name }} {{ desc.level }}
+                                            li(ng-repeat="desc in description", class="desc") {{ desc.name }} 
+                                                div.stars(ng-repeat="n in [].constructor(desc.level) track by $index")
+                                                        i.fa.fa-star-o

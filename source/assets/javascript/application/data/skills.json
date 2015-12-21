@@ -23,8 +23,8 @@
                     {"name" : "Drupal", "level" : 2},
                     {"name" : "Joola", "level" : 2},
                     {"name" : "Wordpress", "level" : 2},
-                    "Joola",
-                    "Wordpress"
+                    {"name" : "Joola", "level" : 2},
+                    {"name" : "Wordpress", "level" : 4}
                 ],
                 "Other" : {
                 }

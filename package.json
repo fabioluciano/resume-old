@@ -21,6 +21,7 @@
     "gulp-uglify": "latest",
     "gulp-watch": "latest",
     "imagemin-pngquant": "latest",
+    "jshint": "latest",
     "jshint-stylish": "latest",
     "less-plugin-clean-css": "latest",
     "rimraf": "latest"

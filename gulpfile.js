@@ -22,14 +22,12 @@
 
     // Install dependencies
     gulp.task('bower', () => {
-        var stats = fs.statSync('./bower');
-
-        if( ! stats.isDirectory()) {
-            console.log('INSTALANDO');
+        try {
+            var stats = fs.statSync('./bower');
             return bower({ cmd : 'install'});
+        } catch (e) {
+            return bower({ cmd : 'update'});
         }
-
-        return bower({ cmd : 'update'});
     });
 
     // Concat all vendor javascript files, removes the debug informations and
