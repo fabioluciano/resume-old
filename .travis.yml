@@ -3,8 +3,7 @@ os:
 language: node_js
 
 node_js:
-  - 0.6
-  - 0.8
+  - 4.1
   
 sudo: false
 
