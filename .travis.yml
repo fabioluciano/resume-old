@@ -1,0 +1,19 @@
+os:
+  - linux
+language: node_js
+
+node_js:
+  - 0.6
+  - 0.8
+  
+sudo: false
+
+before_script:
+  - npm install -g gulp jade
+  - npm install
+  
+script: gulp
+
+notifications:
+  email:
+    - fabio@naoimporta.com
