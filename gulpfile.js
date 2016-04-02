@@ -148,7 +148,7 @@
         return gulp.watch(directory.source.image + '*.png', ['image']);
     });
 
-    gulp.task('default', ['dependencies', 'build', 'lint', 'watch']);
+    gulp.task('default', ['dependencies', 'build', 'lint']);
     gulp.task('dependencies', ['bower']);
     gulp.task('build', ['javascript', 'stylesheet', 'template', 'copy-data', 'image']);
     gulp.task('javascript', ['javascript-vendor', 'javascript-application']);
