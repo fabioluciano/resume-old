@@ -8,8 +8,6 @@ html {
 }
 body {
     height:100%;
-    background:-moz-linear-gradient(top, #ccc, #fff);
-    background:-webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff));
 }
 
 #layout {
@@ -17,20 +15,15 @@ body {
 
     border: 8px solid @color-clouds;
     width: 85%;
-    margin: auto;
+    margin: 50px auto;
     padding: 5px;
     background: rgba(255,255,255, 0.9);
 }
 
 header {
-    h1 {
-        .drop-shadow(0 4 0 lighten(@color-peter-river, 30%));
-
+    #logo {
         display: block;
-        font-size: 3em;
         text-align: center;
-        font-family: 'Patua One', cursive;
-        color: @color-peter-river;
     }
 }
 
@@ -87,6 +80,14 @@ footer {
                 text-transform: uppercase;
                 text-decoration: none;
                 letter-spacing: 0rem;
+
+                i {
+                    margin : auto 5px;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -102,9 +103,10 @@ footer {
     #skills {
         padding-top: 10px;
         font-family: 'Source Code Pro';
-        text-transform: uppercase;
+
         text-decoration: none;
         letter-spacing: 0rem;
+
         ul {
             margin: 0;
             padding: 0;
@@ -167,6 +169,30 @@ footer {
             .fa {
                 margin: auto 2px;
             }
+        }
+    }
+}
+
+#projects {
+    .github-projects {
+        clear: both;
+    }
+
+    li {
+        .border-radius(5px);
+
+        float: left;
+        width: 150px;
+        height: 120px;
+        border: 1px solid #000;
+        display: inline-block;
+
+        margin: 5px;
+        padding: 5px;
+
+        a {
+            color : #000;
+            text-decoration: none;
         }
     }
 }
