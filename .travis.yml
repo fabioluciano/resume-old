@@ -11,8 +11,12 @@ before_script:
   - npm install -g gulp jade
   - npm install
   
-script: gulp
+script: npm run-script deploy
 
 notifications:
   email:
     - fabio@naoimporta.com
+
+global:
+  - GH_REF: github.com/fabioluciano/resume.git
+  - secure: BAN/Q/J8giFIWsWJnRGfNl82KR0xB3iOiLDuTUuDMpYXabEQngswiNcekNsI2ZQB7SXQfwZ8lw5GiV3PPsL6cK6SHIzFSl/zPXOrO816CdphwsUaieAY1gThM+02qKEn44ZKuDoGhLMuNwGtJC1amdLvWs5deujSHtcSgcgsGL6DbfArnY/DFC1N6IfDdeVT8c5F8Y61SP/dTHMwolLzGUVOnyUHvmUXRDOaS2XhiD75R/fauvJ67MQAS6XOgjecuY+3RQjM9IgHhyj/Q22ooQ7vUeKnQFidAND4mDxqksQb9HuKncEnrziUu6pUB8SBLwKB7KQcyRgBeIJQHenliA3wcdx15FcBxffq42ksZqWaM4vaH6dMczqlO1AWXWBTYKpXb3jEDwt++lDSWcf2JWhlGNNWtifswKJjxbAPbPEAZUsAteW+DLPEbuggG8wWjF5eBUQOsl5PvyUUVFmK2/4zSzl8je3jpXXjm3LFP4ZgszbKcMEStsnT/TpYL8pN1Mibt8ggY9qyOKm5qxUWymFzrfX9pMmPgXTiY58JqN6uURUm040VYwQKeLd816SZKLsIyUTe7LEM2ubzmsS+9q69tRtbc/U4ZJ5Thr1Z8NScluhd2Je2IFBHcCbb1+MJ4BrqMcL0XqBrFKPtfQwTtGgS2G6pSfdY31KIcAXpyo4=
