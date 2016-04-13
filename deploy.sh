@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-# clear and re-create the out directory
-rm -rf out || exit 0;
-
 gulp && cd source
 
 git init
