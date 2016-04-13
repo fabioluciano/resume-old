@@ -12,7 +12,7 @@ before_script:
   - npm install -g gulp jade
   - npm install
 
-script: bash ./deploy.sh
+script:
   - gulp
   - cd target
   - git init
