@@ -25,5 +25,8 @@
     "jshint-stylish": "latest",
     "less-plugin-clean-css": "latest",
     "rimraf": "latest"
-  }
+  },
+  "scripts": {
+     "deploy": "./deploy-ghpages.sh"
+  },
 }
