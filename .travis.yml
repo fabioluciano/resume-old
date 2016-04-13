@@ -14,6 +14,7 @@ before_script:
   - gulp
 
 script:
+  - tree target
   - cd target
   - git init
   - git config user.name "Travis CI"
