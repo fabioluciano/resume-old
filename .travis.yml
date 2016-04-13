@@ -11,9 +11,9 @@ before_script:
   - rm target -rf
   - npm install -g gulp jade
   - npm install
+  - gulp
 
 script:
-  - gulp
   - cd target
   - git init
   - git config user.name "Travis CI"
