@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-gulp && cd source
+gulp && cd target
 
 git init
 
