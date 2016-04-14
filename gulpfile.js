@@ -33,7 +33,10 @@
     // Concat all vendor javascript files, removes the debug informations and
     // reruns the uglify on minimified files
     gulp.task('javascript-vendor', ['dependencies'], () => {
-        return gulp.src(dependencies({filter : '**/*.js'}))
+        let files = dependencies({filter : '**/*.js'});
+        console.log(files);
+
+        return gulp.src(files)
             .pipe(concat('vendor.min.js'))
             .pipe(uglify())
             .pipe(gulp.dest(directory.target.javascript));
