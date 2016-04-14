@@ -1,19 +1,15 @@
 os:
   - linux
 language: node_js
-
 node_js:
-  - 5.6.0
-
+  - 5.10.1
 before_install:
     - sudo apt-get install -y tree
-
 before_script:
   - rm target -rf
   - npm install -g gulp pug
   - npm install
   - gulp
-
 script:
   - tree target
   - cd target
@@ -23,7 +19,6 @@ script:
   - git add -A
   - git commit -m "Deploy to GitHub Pages"
   - git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
-
 notifications:
   email:
     - fabio@naoimporta.com
