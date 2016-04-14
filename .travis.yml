@@ -7,6 +7,9 @@ node_js:
 
 sudo: false
 
+before_install:
+    - sudo apt-get install -y tree
+
 before_script:
   - rm target -rf
   - npm install -g gulp jade
