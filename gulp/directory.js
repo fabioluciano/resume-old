@@ -10,8 +10,8 @@ module.exports = (function () {
                 less = function () {
                     return assets() + 'less/';
                 },
-                jade = function () {
-                    return root + 'jade/';
+                pug = function () {
+                    return root + 'pug/';
                 },
                 image = function () {
                     return assets() + 'image/'
@@ -22,7 +22,7 @@ module.exports = (function () {
                 assets : assets(),
                 javascript :  javascript(),
                 less :  less(),
-                jade : jade(),
+                pug : pug(),
                 image : image()
             };
         }()),

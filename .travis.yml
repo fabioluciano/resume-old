@@ -10,7 +10,7 @@ before_install:
 
 before_script:
   - rm target -rf
-  - npm install -g gulp jade
+  - npm install -g gulp pug
   - npm install
   - gulp
 

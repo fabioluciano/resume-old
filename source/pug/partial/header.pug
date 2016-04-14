@@ -1,0 +1,27 @@
+header
+    div#logo
+        img(src="/assets/image/logo.png")
+    nav#navigation-bar
+        ul
+            li
+                a(href="/")
+                    i.fa.fa-code
+                    | {{ 'FIELDS.MAINBAR.SKILLS' | translate }}
+            li
+                a(href="/solucoes")
+                    i.fa.fa-code
+                    | {{ 'FIELDS.MAINBAR.SOLUTIONS' | translate }}
+            li
+                a(href="/projetos")
+                    i.fa.fa-code
+                    | {{ 'FIELDS.MAINBAR.PROJECTS' | translate }}
+            li
+                a(href="/contato")
+                    i.fa.fa-envelope-o
+                    | {{ 'FIELDS.MAINBAR.CONTACT' | translate }}
+            li
+                a(href="/blog")
+                    i.fa.fa-envelope-o
+                    | {{ 'FIELDS.MAINBAR.BLOG' | translate }}
+            li
+                select(ng-options='lang.language for lang in avaliableLanguages track by lang.i18n', ng-model='selectedLanguage', ng-change='changeLanguage()', class="form-control")

@@ -13,7 +13,7 @@
         jsonminify = require('gulp-jsonminify'),
         ngAnnotate = require('gulp-ng-annotate'),
         less       = require('gulp-less'),
-        jade       = require('gulp-jade'),
+        pug       = require('gulp-pug'),
         stylish    = require('jshint-stylish'),
         CleanCSS   = require('less-plugin-clean-css'),
         imagemin   = require('gulp-imagemin'),
@@ -100,8 +100,8 @@
     });
 
     gulp.task('template', () => {
-        return gulp.src(directory.source.jade + '**/*.jade')
-            .pipe(jade({pretty : false}))
+        return gulp.src(directory.source.pug + '**/*.pug')
+            .pipe(pug({pretty : false}))
             .pipe(gulp.dest(directory.target.root))
     });
 
@@ -120,7 +120,7 @@
      * Watchers
      */
     gulp.task('watch-template', () => {
-        return gulp.watch(directory.source.jade + '**/*.jade', ['template']);
+        return gulp.watch(directory.source.pug + '**/*.pug', ['template']);
     });
 
     gulp.task('watch-copy-data', () => {
