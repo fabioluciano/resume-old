@@ -7,7 +7,7 @@ before_install:
     - sudo apt-get install -y tree
 before_script:
   - rm target bower node_modules -rf
-  - npm install -g gulp pug jshint
+  - npm install -g gulp pug jshint bower
   - npm install
   - gulp
 script:
