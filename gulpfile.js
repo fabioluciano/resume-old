@@ -13,7 +13,7 @@
         jsonminify = require('gulp-jsonminify'),
         ngAnnotate = require('gulp-ng-annotate'),
         less       = require('gulp-less'),
-        pug       = require('gulp-pug'),
+        pug        = require('gulp-pug'),
         stylish    = require('jshint-stylish'),
         CleanCSS   = require('less-plugin-clean-css'),
         imagemin   = require('gulp-imagemin'),
@@ -33,6 +33,7 @@
     // Concat all vendor javascript files, removes the debug informations and
     // reruns the uglify on minimified files
     gulp.task('javascript-vendor', ['dependencies'], () => {
+        console.log(library.ext('js').files);
         return gulp.src(library.ext('js').files)
             .pipe(concat('vendor.min.js'))
             .pipe(uglify())
@@ -74,6 +75,7 @@
 
     // Compile LESS files on css files
     gulp.task('stylesheet-vendor', ['dependencies'], () => {
+        console.log(library.ext('css').files);
         return gulp.src(library.ext('css').files)
             .pipe(concat('vendor.min.css'))
             .pipe(gulp.dest(directory.target.stylesheet));
