@@ -2,23 +2,23 @@
     'use strict';
 
     // Libraries to import
-    var fs         = require('fs'),
-        gulp       = require('gulp'),
-        bower      = require('gulp-bower'),
-        library    = require('bower-files')(),
-        jshint     = require('gulp-jshint'),
-        concat     = require('gulp-concat'),
-        rimraf     = require('rimraf'),
-        uglify     = require('gulp-uglify'),
-        jsonminify = require('gulp-jsonminify'),
-        ngAnnotate = require('gulp-ng-annotate'),
-        less       = require('gulp-less'),
-        pug        = require('gulp-pug'),
-        stylish    = require('jshint-stylish'),
-        CleanCSS   = require('less-plugin-clean-css'),
-        imagemin   = require('gulp-imagemin'),
-        pngquant   = require('imagemin-pngquant'),
-        directory  = require('./gulp/directory');
+    var fs           = require('fs'),
+        gulp         = require('gulp'),
+        bower        = require('gulp-bower'),
+        dependencies = require('main-bower-files'),
+        jshint       = require('gulp-jshint'),
+        concat       = require('gulp-concat'),
+        rimraf       = require('rimraf'),
+        uglify       = require('gulp-uglify'),
+        jsonminify   = require('gulp-jsonminify'),
+        ngAnnotate   = require('gulp-ng-annotate'),
+        less         = require('gulp-less'),
+        pug          = require('gulp-pug'),
+        stylish      = require('jshint-stylish'),
+        CleanCSS     = require('less-plugin-clean-css'),
+        imagemin     = require('gulp-imagemin'),
+        pngquant     = require('imagemin-pngquant'),
+        directory    = require('./gulp/directory');
 
     // Install dependencies
     gulp.task('bower', () => {
@@ -33,9 +33,7 @@
     // Concat all vendor javascript files, removes the debug informations and
     // reruns the uglify on minimified files
     gulp.task('javascript-vendor', ['dependencies'], () => {
-        console.log(library.files);
-        // console.log(library.ext('js'));
-        return gulp.src(library.ext('js').files)
+        return gulp.src(dependencies({filter : '**/*.js'}))
             .pipe(concat('vendor.min.js'))
             .pipe(uglify())
             .pipe(gulp.dest(directory.target.javascript));
@@ -61,28 +59,23 @@
             .pipe(gulp.dest(directory.target.javascript));
     });
 
-    // Check for inconsistences of javascript application files
     gulp.task('jshint', ['build'], () => {
         return gulp.src(directory.target.javascript + 'application.min.js')
             .pipe(jshint())
             .pipe(jshint.reporter(stylish));
     });
 
-    // Compile LESS files on css files
     gulp.task('vendor-fonts', ['dependencies'], () => {
-        return gulp.src(library.ext(['eot', 'woff', 'woff2', 'ttf', 'svg']).files)
+        return gulp.src(dependencies({filter : '**/*.(eot|woff2?|ttf|svg)'}))
             .pipe(gulp.dest(directory.target.assets + 'fonts'));
     });
 
-    // Compile LESS files on css files
     gulp.task('stylesheet-vendor', ['dependencies'], () => {
-        console.log(library.ext('css').files);
-        return gulp.src(library.ext('css').files)
+        return gulp.src(dependencies({filter : '**/*.css'}))
             .pipe(concat('vendor.min.css'))
             .pipe(gulp.dest(directory.target.stylesheet));
     });
 
-    // Compile LESS files on css files
     gulp.task('stylesheet-application', () => {
         return gulp.src(directory.source.less + 'application.less')
             .pipe(less({
@@ -104,7 +97,7 @@
 
     gulp.task('template', () => {
         return gulp.src(directory.source.pug + '**/*.pug')
-            .pipe(pug({pretty : false}))
+            .pipe(pug({pretty : true}))
             .pipe(gulp.dest(directory.target.root))
     });
 

@@ -25,6 +25,7 @@
     "jshint": "latest",
     "jshint-stylish": "latest",
     "less-plugin-clean-css": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "main-bower-files": "latest"
   }
 }

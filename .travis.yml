@@ -7,7 +7,7 @@ before_install:
     - sudo apt-get install -y tree
 before_script:
   - rm target -rf
-  - npm install -g gulp pug
+  - npm install -g gulp pug jshint
   - npm install
   - gulp
 script:
