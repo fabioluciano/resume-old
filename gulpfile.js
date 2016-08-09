@@ -18,7 +18,14 @@
         CleanCSS     = require('less-plugin-clean-css'),
         imagemin     = require('gulp-imagemin'),
         pngquant     = require('imagemin-pngquant'),
-        directory    = require('./gulp/directory');
+        directory    = require('./gulp/directory'),
+        javascript   = [
+            directory.source.javascript + 'application.js',
+            directory.source.javascript + 'application/configuration/**/*',
+            directory.source.javascript + 'application/filter/**/*',
+            directory.source.javascript + 'application/service/**/*',
+            directory.source.javascript + 'application/controller/**/*',
+        ];
 
     // Install dependencies
     gulp.task('bower', () => {
@@ -45,13 +52,6 @@
     // Concat all application javascript files, removes the debug informations and
     // reruns the uglify on minimified files
     gulp.task('javascript-application', () => {
-        var javascript = [
-            directory.source.javascript + 'application.js',
-            directory.source.javascript + 'application/configuration/**/*',
-            directory.source.javascript + 'application/filter/**/*',
-            directory.source.javascript + 'application/service/**/*',
-            directory.source.javascript + 'application/controller/**/*',
-        ];
 
         return gulp.src(javascript)
             .pipe(concat('application.min.js'))
@@ -63,7 +63,8 @@
     });
 
     gulp.task('jshint', ['build'], () => {
-        return gulp.src(directory.target.javascript + 'application.min.js')
+        
+        return gulp.src(javascript)
             .pipe(jshint())
             .pipe(jshint.reporter(stylish));
     });
