@@ -1,0 +1,29 @@
+
+<div id="home">
+  <h2 id="title">{{ 'FIELDS.MAINBAR.SKILLS' | translate }}</h2>
+  <div id="resume">{{'RESUME.RESUME' | translate }}</div>
+  <div id="skills">
+    <ul class="activity">
+      <li ng-repeat="(activity, description) in skills">
+        <div>{{ activity | translate }}</div>
+        <ul class="platform">
+          <li ng-repeat="(platform, description) in description">{{ platform }}
+            <ul class="language">
+              <li ng-repeat="(language, description) in description">{{ language }}
+                <ul class="category">
+                  <li ng-repeat="(category, description) in description">{{ category | translate }}
+                    <ul class="desc">
+                      <li class="desc" ng-repeat="desc in description">{{ desc.name }} 
+                        <div class="stars" ng-repeat="n in [].constructor(desc.level) track by $index"><i class="fa fa-star-o"></i></div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

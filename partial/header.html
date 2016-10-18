@@ -1,0 +1,16 @@
+
+<header>
+  <div id="logo"><img src="/assets/image/logo.png"/></div>
+  <nav id="navigation-bar">
+    <ul>
+      <li><a href="/"><i class="fa fa-code"></i>{{ 'FIELDS.MAINBAR.SKILLS' | translate }}</a></li>
+      <li><a href="/solucoes"><i class="fa fa-code"></i>{{ 'FIELDS.MAINBAR.SOLUTIONS' | translate }}</a></li>
+      <li><a href="/projetos"><i class="fa fa-code"></i>{{ 'FIELDS.MAINBAR.PROJECTS' | translate }}</a></li>
+      <li><a href="/contato"><i class="fa fa-envelope-o"></i>{{ 'FIELDS.MAINBAR.CONTACT' | translate }}</a></li>
+      <li><a href="/blog"><i class="fa fa-envelope-o"></i>{{ 'FIELDS.MAINBAR.BLOG' | translate }}</a></li>
+      <li>
+        <select class="form-control" ng-options="lang.language for lang in avaliableLanguages track by lang.i18n" ng-model="selectedLanguage" ng-change="changeLanguage()"></select>
+      </li>
+    </ul>
+  </nav>
+</header>

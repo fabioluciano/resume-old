@@ -1,0 +1,12 @@
+
+<div id="projects">
+  <h2 id="title">{{ 'FIELDS.MAINBAR.PROJECTS' | translate }}</h2>
+  <div class="github-projects">
+    <ul>
+      <li ng-repeat="repository in githubProjects | filter : {fork : false} | orderBy : 'updated_at' : true">
+        <div class="name"><a href="{{repository.html_url}}" target="_blank">{{ repository.name }}</a></div>
+        <div class="description">{{ repository.description }}</div>
+      </li>
+    </ul>
+  </div>
+</div>
